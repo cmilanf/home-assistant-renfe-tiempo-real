@@ -1,0 +1,24 @@
+[project]
+name = "home-assistant-renfe-tiempo-real"
+version = "0.1.0"
+description = "Home Assistant integration for Renfe Cercanías real time departures"
+license = "MIT"
+requires-python = ">=3.13"
+
+[dependency-groups]
+dev = [
+    "pytest-homeassistant-custom-component",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"

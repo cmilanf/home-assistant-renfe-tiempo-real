@@ -1,0 +1,137 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "CODIGO_ESTACION": 18000,
+        "NOMBRE_ESTACION": "Atocha Cercanías",
+        "NUCLEO": 10,
+        "NOMBRE_NUCLEO": "Madrid",
+        "LATITUD": 40.406619186351975,
+        "LONGITUD": -3.6894391470612278,
+        "COLOR": "0,148,61",
+        "PARKING_BICIS": null,
+        "ACCESIBILIDAD": "Accesible",
+        "COR_BUS": "Bus Urbano",
+        "COR_METRO": "Metro: Línea 1",
+        "LINEAS": "C10,C2,C3,C4,C4a,C4b,C5,C7,C8,C8a,C8b",
+        "MOSTRAR": "S"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-3.6894391470612278, 40.406619186351975]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "CODIGO_ESTACION": 17000,
+        "NOMBRE_ESTACION": "Madrid-Chamartín-Clara Campoamor",
+        "NUCLEO": 10,
+        "NOMBRE_NUCLEO": "Madrid",
+        "LATITUD": 40.472222,
+        "LONGITUD": -3.682222,
+        "COLOR": "0,148,61",
+        "PARKING_BICIS": "Aparcabicis: Cerrado",
+        "ACCESIBILIDAD": "Accesible",
+        "COR_BUS": "Bus Urbano|Bus Interurbano",
+        "COR_METRO": "Metro: Líneas 1 y 10",
+        "LINEAS": "C1,C10,C2,C3,C4,C4a,C4b,C7,C8,C8a,C8b",
+        "MOSTRAR": "S"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-3.682222, 40.472222]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "CODIGO_ESTACION": 60200,
+        "NOMBRE_ESTACION": "Aranjuez",
+        "NUCLEO": 10,
+        "NOMBRE_NUCLEO": "Madrid",
+        "LATITUD": 40.033889,
+        "LONGITUD": -3.606944,
+        "COLOR": "149,37,133",
+        "PARKING_BICIS": null,
+        "ACCESIBILIDAD": null,
+        "COR_BUS": null,
+        "COR_METRO": null,
+        "LINEAS": "C3",
+        "MOSTRAR": "S"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-3.606944, 40.033889]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "CODIGO_ESTACION": 71801,
+        "NOMBRE_ESTACION": "Barcelona-Sants",
+        "NUCLEO": 50,
+        "NOMBRE_NUCLEO": "Rodalies de Catalunya",
+        "LATITUD": 41.37986322852104,
+        "LONGITUD": 2.1410168876414657,
+        "COLOR": "0,105,170",
+        "PARKING_BICIS": null,
+        "ACCESIBILIDAD": "Accesible",
+        "COR_BUS": "Bus Urbano",
+        "COR_METRO": "Metro líneas L3 y L5",
+        "LINEAS": "R1,R11,R2,R2N,R2S,R3,R4,RG1",
+        "MOSTRAR": "S"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2.1410168876414657, 41.37986322852104]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "CODIGO_ESTACION": 66212,
+        "NOMBRE_ESTACION": "València Sant Isidre",
+        "NUCLEO": 40,
+        "NOMBRE_NUCLEO": "Valencia",
+        "LATITUD": 39.458611,
+        "LONGITUD": -0.401944,
+        "COLOR": "120,180,225",
+        "PARKING_BICIS": null,
+        "ACCESIBILIDAD": "Accesible",
+        "COR_BUS": null,
+        "COR_METRO": null,
+        "LINEAS": "C1,C2,C3",
+        "MOSTRAR": "S"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.401944, 39.458611]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "CODIGO_ESTACION": 13100,
+        "NOMBRE_ESTACION": "Orduña",
+        "NUCLEO": 60,
+        "NOMBRE_NUCLEO": "Bilbao",
+        "LATITUD": 42.995,
+        "LONGITUD": -3.006944,
+        "COLOR": "120,180,225",
+        "PARKING_BICIS": null,
+        "ACCESIBILIDAD": null,
+        "COR_BUS": null,
+        "COR_METRO": null,
+        "LINEAS": "C3",
+        "MOSTRAR": "S"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-3.006944, 42.995]
+      }
+    }
+  ]
+}

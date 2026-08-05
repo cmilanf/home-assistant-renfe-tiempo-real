@@ -1,0 +1,26 @@
+{
+  "estacion": {
+    "stopId": "60200",
+    "nombre": "Aranjuez",
+    "nucleo": "10",
+    "salidas": [
+      {
+        "trenId": "20070",
+        "tripId": "1015X20070C3",
+        "routeId": "10T0008C3",
+        "destino": "17000",
+        "destinoNombre": "Madrid-Chamartín-Clara Campoamor",
+        "horaSalida": "05-08-2026 16:51:00",
+        "horaSalidaPlanificada": "05-08-2026 16:51:00",
+        "accesible": 1,
+        "linea": "C3",
+        "locEstacion": "60200",
+        "localizacion": {
+          "latitud": 40.033889,
+          "longitud": -3.606944
+        }
+      }
+    ]
+  },
+  "fechaActualizacion": "05-08-2026 16:22:41"
+}

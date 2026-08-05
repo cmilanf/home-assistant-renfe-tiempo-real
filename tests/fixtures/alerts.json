@@ -1,0 +1,79 @@
+{
+  "avisos": {
+    "estacion": [
+      {
+        "idnegocio": "10",
+        "estacion": "18000",
+        "idiomas": [
+          {
+            "lengua": "es",
+            "texto": "El ascensor de la vía 5 se encuentra fuera de servicio. Disculpen las molestias."
+          },
+          {
+            "lengua": "en",
+            "texto": "The lift on platform 5 is out of service. We apologise for the inconvenience."
+          },
+          {
+            "lengua": "es",
+            "texto": "Segundo párrafo que Renfe repite con el mismo idioma."
+          }
+        ]
+      },
+      {
+        "idnegocio": "40",
+        "estacion": "66212",
+        "idiomas": [
+          {
+            "lengua": "es",
+            "texto": "Ascensor de la estación de Valencia San Isidro fuera de servicio."
+          },
+          {
+            "lengua": "ca",
+            "texto": "Ascensor de l'estació de Valencia San Isidro fora de servei."
+          }
+        ]
+      }
+    ],
+    "linea": [
+      {
+        "idnegocio": "10",
+        "linea": "C7",
+        "idiomas": [
+          {
+            "lengua": "es",
+            "texto": "Circulación restablecida con demoras de hasta 15 minutos."
+          }
+        ]
+      },
+      {
+        "idnegocio": "60",
+        "linea": "C3",
+        "idiomas": [
+          {
+            "lengua": "es",
+            "texto": "Los horarios de los trenes accesibles pueden verse modificados."
+          },
+          {
+            "lengua": "eu",
+            "texto": "Tren irisgarrien ordutegiak aldatu egin daitezke."
+          }
+        ]
+      }
+    ]
+  },
+  "informaciones": {
+    "estacion": [],
+    "linea": [
+      {
+        "idnegocio": "10",
+        "linea": "C3",
+        "idiomas": [
+          {
+            "lengua": "es",
+            "texto": "Obras de mejora en la estación de Aranjuez durante el mes de agosto."
+          }
+        ]
+      }
+    ]
+  }
+}

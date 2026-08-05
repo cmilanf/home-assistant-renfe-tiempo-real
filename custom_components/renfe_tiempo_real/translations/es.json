@@ -1,0 +1,100 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Renfe Tiempo Real",
+        "description": "Añade una estación de Renfe Cercanías.",
+        "menu_options": {
+          "nucleus": "Explorar un núcleo de Cercanías",
+          "search": "Buscar una estación por nombre",
+          "manual": "Introducir el código de estación"
+        }
+      },
+      "nucleus": {
+        "title": "Núcleo de Cercanías",
+        "description": "Elige el núcleo de Cercanías o Rodalies de tu estación.",
+        "data": {
+          "nucleus": "Núcleo"
+        }
+      },
+      "search": {
+        "title": "Buscar una estación",
+        "description": "Escribe parte del nombre de la estación, o déjalo vacío para listar todas las estaciones de {nucleus}.",
+        "data": {
+          "search": "Búsqueda"
+        }
+      },
+      "pick": {
+        "title": "Selecciona la estación",
+        "description": "{count} estaciones coinciden con tu búsqueda.",
+        "data": {
+          "station_id": "Estación"
+        }
+      },
+      "manual": {
+        "title": "Código de estación",
+        "description": "Introduce el código de estación, por ejemplo 18000 para Madrid-Atocha Cercanías o 71801 para Barcelona-Sants.",
+        "data": {
+          "station_id": "Código de estación"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "No se ha podido contactar con el servicio de Renfe. Inténtalo más tarde.",
+      "invalid_station_code": "Código de estación no válido. Es un número de tres a seis dígitos, por ejemplo 18000.",
+      "station_not_found": "No hay ninguna estación con ese código.",
+      "no_stations_found": "Ninguna estación coincide con esa búsqueda.",
+      "too_many_stations": "Coinciden {count} estaciones. Concreta más la búsqueda.",
+      "unknown": "Error inesperado al consultar el servicio de Renfe."
+    },
+    "abort": {
+      "already_configured": "Esta estación ya está configurada.",
+      "cannot_connect": "No se ha podido contactar con el servicio de Renfe. Inténtalo más tarde.",
+      "unknown": "Error inesperado al consultar el servicio de Renfe."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opciones de Renfe",
+        "data": {
+          "scan_interval": "Intervalo de actualización",
+          "max_departures": "Salidas a exponer por trayecto",
+          "alerts": "Consultar avisos del servicio"
+        },
+        "data_description": {
+          "scan_interval": "Cada cuántos segundos se consulta el panel de salidas. Renfe lo regenera una vez por minuto.",
+          "max_departures": "Cuántos trenes próximos se listan en el atributo next_departures.",
+          "alerts": "Publicar los avisos e informaciones de Renfe que afectan a esta estación y a sus líneas."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "next_departure": {
+        "name": "Próxima salida"
+      },
+      "last_updated": {
+        "name": "Fecha de los datos"
+      },
+      "alerts": {
+        "name": "Avisos del servicio"
+      },
+      "route_departure_time": {
+        "name": "Hora de {label}"
+      }
+    }
+  },
+  "services": {
+    "refresh": {
+      "name": "Actualizar",
+      "description": "Consulta a Renfe inmediatamente, sin esperar a la siguiente actualización programada. Sin destino se actualizan todas las estaciones configuradas."
+    }
+  },
+  "exceptions": {
+    "no_station_targeted": {
+      "message": "Ninguna estación de Renfe cargada coincide con el destino de la acción."
+    }
+  }
+}

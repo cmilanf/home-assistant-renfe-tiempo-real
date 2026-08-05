@@ -1,0 +1,13 @@
+{
+  "name": "home-assistant-renfe-tiempo-real-card",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Tests for the Renfe Tiempo Real Lovelace card",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test --test-timeout=15000 tests/frontend/renfe-tiempo-real-card.test.js"
+  },
+  "devDependencies": {
+    "jsdom": "30.0.1"
+  }
+}

@@ -1,0 +1,148 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Not on the hour: GitHub delays or drops scheduled runs at peak times.
+    # A nightly run catches a new Home Assistant release breaking the
+    # integration, because the dependencies are deliberately unpinned.
+    - cron: "43 4 * * *"
+  workflow_dispatch:
+
+jobs:
+  integration:
+    name: Integration tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v9.0.0
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        # Home Assistant 2026.7 requires Python 3.14.
+        run: uv python install 3.14
+
+      - name: Install dependencies
+        run: |
+          uv venv --python 3.14
+          uv pip install pytest-homeassistant-custom-component ruff pytest-cov
+
+      - name: Lint
+        run: |
+          .venv/bin/ruff check custom_components tests scripts
+          .venv/bin/ruff format --check custom_components tests scripts
+
+      - name: Tests
+        # The suite blocks network access, so it never touches the real Renfe API.
+        run: .venv/bin/python -m pytest -q --cov=custom_components.renfe_tiempo_real
+
+  card:
+    name: Card tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - run: npm install
+
+      - name: Tests
+        run: npm test
+
+  hassfest:
+    name: hassfest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: home-assistant/actions/hassfest@master
+
+  hacs:
+    name: HACS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: hacs/action@main
+        with:
+          category: integration
+
+  pre-commit:
+    name: pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # gitleaks needs history to scan the commits in a push or PR.
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+      - run: pip install pre-commit
+      - run: pre-commit run --all-files --show-diff-on-failure
+
+  live:
+    # The test suite blocks the network, so nothing else here would notice Renfe
+    # changing its payload. This job is the only thing that talks to the real
+    # API, so it runs on the schedule rather than on every push.
+    name: Live API check
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # Needed to raise the issue below. A failed scheduled run otherwise only
+      # emails whoever last edited the cron line, which is easy to miss.
+      issues: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v9.0.0
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: |
+          uv venv --python 3.14
+          uv pip install aiohttp
+
+      - name: Check the Renfe API contract
+        id: live
+        run: .venv/bin/python scripts/live_check.py
+
+      - name: Open or update an issue when the API drifts
+        if: failure() && github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          # One issue per outage, not one per night.
+          existing=$(gh issue list --label api-drift --state open \
+            --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" \
+              --body "Live API check failed again: $RUN_URL"
+          else
+            gh label create api-drift \
+              --description "The Renfe API no longer matches expectations" \
+              --color B60205 2>/dev/null || true
+            gh issue create --label api-drift \
+              --title "Live Renfe API check is failing" \
+              --body "$(printf '%s\n' \
+                "The nightly live check against the Renfe API failed." \
+                "" \
+                "Run: $RUN_URL" \
+                "" \
+                "The mocked test suite still passes, so this points at Renfe" \
+                "changing its response rather than at a regression here." \
+                "Reproduce locally with:" \
+                "" \
+                '```bash' \
+                ".venv/bin/python scripts/live_check.py" \
+                '```')"
+          fi

@@ -1,0 +1,100 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Renfe Tiempo Real",
+        "description": "Add a Renfe Cercanías station.",
+        "menu_options": {
+          "nucleus": "Browse a commuter network",
+          "search": "Search for a station by name",
+          "manual": "Enter a station code"
+        }
+      },
+      "nucleus": {
+        "title": "Commuter network",
+        "description": "Pick the Cercanías or Rodalies network of your station.",
+        "data": {
+          "nucleus": "Network"
+        }
+      },
+      "search": {
+        "title": "Search for a station",
+        "description": "Type part of the station name, or leave it empty to list every station of {nucleus}.",
+        "data": {
+          "search": "Search"
+        }
+      },
+      "pick": {
+        "title": "Select the station",
+        "description": "{count} stations matched your search.",
+        "data": {
+          "station_id": "Station"
+        }
+      },
+      "manual": {
+        "title": "Station code",
+        "description": "Enter the station code, for example 18000 for Madrid-Atocha Cercanías or 71801 for Barcelona-Sants.",
+        "data": {
+          "station_id": "Station code"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not reach the Renfe service. Try again later.",
+      "invalid_station_code": "Invalid station code. It is a number of three to six digits, for example 18000.",
+      "station_not_found": "No station found with that code.",
+      "no_stations_found": "No station matched that search.",
+      "too_many_stations": "{count} stations matched. Narrow the search down.",
+      "unknown": "Unexpected error while querying the Renfe service."
+    },
+    "abort": {
+      "already_configured": "This station is already configured.",
+      "cannot_connect": "Could not reach the Renfe service. Try again later.",
+      "unknown": "Unexpected error while querying the Renfe service."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Renfe options",
+        "data": {
+          "scan_interval": "Update interval",
+          "max_departures": "Departures to expose per route",
+          "alerts": "Fetch service alerts"
+        },
+        "data_description": {
+          "scan_interval": "How often the Renfe departure board is polled, in seconds. Renfe regenerates it once a minute.",
+          "max_departures": "Number of upcoming trains listed in the next_departures attribute.",
+          "alerts": "Publish the Renfe warnings and notices affecting this station and its lines."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "next_departure": {
+        "name": "Next departure"
+      },
+      "last_updated": {
+        "name": "Data timestamp"
+      },
+      "alerts": {
+        "name": "Service alerts"
+      },
+      "route_departure_time": {
+        "name": "{label} time"
+      }
+    }
+  },
+  "services": {
+    "refresh": {
+      "name": "Refresh",
+      "description": "Polls Renfe immediately instead of waiting for the next scheduled update. Without a target, every configured station is refreshed."
+    }
+  },
+  "exceptions": {
+    "no_station_targeted": {
+      "message": "No loaded Renfe station matched the target of the action."
+    }
+  }
+}

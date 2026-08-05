@@ -1,0 +1,13 @@
+{
+  "domain": "renfe_tiempo_real",
+  "name": "Renfe Tiempo Real",
+  "after_dependencies": ["frontend", "http", "lovelace"],
+  "codeowners": ["@cmilanf"],
+  "config_flow": true,
+  "documentation": "https://github.com/cmilanf/home-assistant-renfe-tiempo-real",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/cmilanf/home-assistant-renfe-tiempo-real/issues",
+  "requirements": [],
+  "version": "0.2.0"
+}

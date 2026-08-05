@@ -1,0 +1,80 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+.python-version
+
+# Packaging output, in case anyone builds the project from pyproject.toml
+build/
+dist/
+*.egg-info/
+
+# Test and coverage output
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.hypothesis/
+
+# Linter and type checker caches
+.ruff_cache/
+.mypy_cache/
+.pytype/
+
+# Node, used only to run the card tests in jsdom.
+# package-lock.json is intentionally NOT ignored: committing it pins the
+# transitive dependencies of jsdom so test runs are reproducible.
+node_modules/
+npm-debug.log*
+.npm/
+
+# A throwaway Home Assistant configuration used to try the integration out.
+# Its .storage holds auth tokens and its database holds the state history, so
+# none of it belongs in a public repository.
+config/
+.storage/
+home-assistant.log*
+home-assistant_v2.db*
+*.db-shm
+*.db-wal
+
+# Diagnostics downloaded from Home Assistant. They carry the coordinates of the
+# configured stations and the live position of every train on the board.
+*diagnostics*.json
+
+# macOS. `._*` matters here: macOS `tar` writes extended attributes as `._name`
+# siblings, which is exactly the junk that once ended up on the Home Assistant
+# host. Ignoring them keeps them out of the repository too.
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Scratch space
+.tmp/
+tmp/
+
+# Local secrets. The Renfe endpoints need no credentials, so this is only a
+# guard against a local Home Assistant test configuration being committed by
+# mistake.
+.env
+secrets.yaml

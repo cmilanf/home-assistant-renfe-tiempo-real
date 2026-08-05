@@ -1,0 +1,5 @@
+refresh:
+  target:
+    entity:
+      integration: renfe_tiempo_real
+      domain: sensor

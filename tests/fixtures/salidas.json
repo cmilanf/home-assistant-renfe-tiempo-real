@@ -1,0 +1,121 @@
+{
+  "estacion": {
+    "stopId": "18000",
+    "nombre": "Madrid-Atocha Cercanías",
+    "nucleo": "10",
+    "salidas": [
+      {
+        "trenId": "20061",
+        "tripId": "1015X20061C3",
+        "routeId": "10T0008C3",
+        "destino": "17000",
+        "destinoNombre": "Madrid-Chamartín-Clara Campoamor",
+        "horaSalida": "05-08-2026 16:45:00",
+        "horaSalidaReal": "05-08-2026 16:45:00",
+        "horaSalidaPlanificada": "05-08-2026 16:38:00",
+        "accesible": 2,
+        "linea": "C3",
+        "via": "5",
+        "locEstacion": "60103",
+        "position": "S",
+        "localizacion": {
+          "latitud": 40.248536456315435,
+          "longitud": -3.704037104284925
+        }
+      },
+      {
+        "trenId": "20059",
+        "tripId": "1015X20059C3",
+        "routeId": "10T0008C3",
+        "destino": "17000",
+        "destinoNombre": "Madrid-Chamartín-Clara Campoamor",
+        "horaSalida": "05-08-2026 16:30:00",
+        "horaSalidaPlanificada": "05-08-2026 16:30:00",
+        "accesible": 1,
+        "linea": "C3",
+        "locEstacion": "60100",
+        "localizacion": {
+          "latitud": 40.3526762,
+          "longitud": -3.6838977
+        }
+      },
+      {
+        "trenId": "20064",
+        "tripId": "1015X20064C3",
+        "routeId": "10T0007C3",
+        "destino": "60200",
+        "destinoNombre": "Aranjuez",
+        "horaSalida": "05-08-2026 16:26:00",
+        "horaSalidaReal": "05-08-2026 16:26:00",
+        "horaSalidaPlanificada": "05-08-2026 16:26:00",
+        "accesible": 1,
+        "linea": "C3",
+        "via": "7",
+        "locEstacion": "18002",
+        "position": "A",
+        "localizacion": {
+          "latitud": 40.417024595748586,
+          "longitud": -3.7031636761023665
+        }
+      },
+      {
+        "trenId": "24132",
+        "tripId": "1015X24132C7",
+        "routeId": "10T0021C7",
+        "destino": "70103",
+        "destinoNombre": "Alcalá de Henares",
+        "horaSalida": "05-08-2026 16:24:00",
+        "horaSalidaReal": "05-08-2026 16:24:00",
+        "horaSalidaPlanificada": "05-08-2026 16:20:00",
+        "accesible": 2,
+        "linea": "C7",
+        "via": "3",
+        "locEstacion": "18000",
+        "position": "E",
+        "localizacion": {
+          "latitud": 40.406619186351975,
+          "longitud": -3.6894391470612278
+        }
+      },
+      {
+        "trenId": "20063",
+        "tripId": "1015X20063C3",
+        "routeId": "10T0008C3",
+        "destino": "17000",
+        "destinoNombre": "Madrid-Chamartín-Clara Campoamor",
+        "horaSalida": "05-08-2026 16:53:00",
+        "horaSalidaReal": "05-08-2026 16:53:00",
+        "horaSalidaPlanificada": "05-08-2026 16:56:00",
+        "accesible": 1,
+        "linea": "C3",
+        "via": "5",
+        "locEstacion": "60105",
+        "position": "S",
+        "localizacion": {
+          "latitud": 40.16470938957776,
+          "longitud": -3.612776188740749
+        }
+      },
+      {
+        "trenId": "79311",
+        "tripId": "1015X79311C7",
+        "routeId": "10T0021C7",
+        "destino": "18000",
+        "destinoNombre": "Madrid-Atocha Cercanías",
+        "horaSalida": "05-08-2026 16:28:00",
+        "horaSalidaReal": "05-08-2026 16:28:00",
+        "horaSalidaPlanificada": "05-08-2026 16:12:00",
+        "accesible": 1,
+        "linea": "C7",
+        "via": "2",
+        "locEstacion": "70002",
+        "position": "S",
+        "localizacion": {
+          "latitud": 40.44,
+          "longitud": -3.62
+        }
+      }
+    ]
+  },
+  "fechaActualizacion": "05-08-2026 16:22:41"
+}
