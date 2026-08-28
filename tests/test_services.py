@@ -6,7 +6,6 @@ import pytest
 from homeassistant.const import ATTR_ENTITY_ID
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ServiceValidationError
-from homeassistant.helpers import device_registry as dr
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 from pytest_homeassistant_custom_component.test_util.aiohttp import AiohttpClientMocker
 
@@ -18,7 +17,7 @@ from custom_components.renfe_tiempo_real.const import (
     SERVICE_REFRESH,
 )
 
-from .conftest import STATION_CODE, departures_url, url
+from .conftest import STATION_CODE, departures_url, get_station_device, url
 
 NEXT_DEPARTURE = "sensor.atocha_cercanias_next_departure"
 ARANJUEZ_NEXT_DEPARTURE = "sensor.aranjuez_next_departure"
@@ -130,7 +129,7 @@ async def test_refresh_accepts_a_device_target(
 ) -> None:
     """A dashboard can target the station device instead of an entity."""
     await setup_integration(hass, config_entry)
-    device = dr.async_get(hass).async_get_device(identifiers={(DOMAIN, STATION_CODE)})
+    device = get_station_device(hass, config_entry)
     assert device is not None
 
     before = _board_calls(mock_renfe, STATION_CODE)

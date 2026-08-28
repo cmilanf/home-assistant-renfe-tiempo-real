@@ -8,7 +8,6 @@ import aiohttp
 from homeassistant.config_entries import ConfigEntryState
 from homeassistant.const import CONF_SCAN_INTERVAL, STATE_UNAVAILABLE, STATE_UNKNOWN
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers import entity_registry as er
 from homeassistant.util import dt as dt_util
 from pytest_homeassistant_custom_component.common import (
@@ -32,6 +31,7 @@ from .conftest import (
     STATION_CODE,
     STATION_NAME,
     departures_url,
+    get_station_device,
     url,
 )
 
@@ -111,7 +111,7 @@ async def test_device_registered_for_station(
     """A device is created for the station, named after its network."""
     await setup_integration(hass, config_entry)
 
-    device = dr.async_get(hass).async_get_device(identifiers={(DOMAIN, STATION_CODE)})
+    device = get_station_device(hass, config_entry)
     assert device is not None
     assert device.name == STATION_NAME
     assert device.model == "Madrid"

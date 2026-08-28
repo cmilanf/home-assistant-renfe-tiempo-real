@@ -7,6 +7,8 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers import device_registry as dr
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 from pytest_homeassistant_custom_component.test_util.aiohttp import AiohttpClientMocker
 
@@ -47,6 +49,27 @@ def departures_url(station_code: str = STATION_CODE) -> str:
 def load_fixture(name: str) -> dict[str, Any]:
     """Load a JSON fixture."""
     return json.loads((FIXTURE_DIR / name).read_text(encoding="utf-8"))
+
+
+def get_station_device(
+    hass: HomeAssistant,
+    config_entry: MockConfigEntry,
+    station_code: str = STATION_CODE,
+) -> dr.DeviceEntry | None:
+    """Return the device of a station, looked up through its config entry.
+
+    Home Assistant 2026.9 deprecated `DeviceRegistry.async_get_device` because
+    identifiers are no longer unique across config entries, and reports the call
+    as an error rather than a warning when it comes from a test, where there is
+    no `custom_components` frame to blame. Its replacement,
+    `async_get_device_by_identifier`, only exists from that release on, so the
+    suite would stop running against the older cores `hacs.json` claims to
+    support. Walking the entry's devices works on every version.
+    """
+    devices = dr.async_entries_for_config_entry(
+        dr.async_get(hass), config_entry.entry_id
+    )
+    return next((d for d in devices if (DOMAIN, station_code) in d.identifiers), None)
 
 
 @pytest.fixture(autouse=True)
