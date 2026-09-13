@@ -10,6 +10,9 @@
 
 ---
 
+> Este proyecto ha sido generado por [Kiro](https://kiro.dev), un entorno de
+> desarrollo que utiliza IA. El LLM utilizado ha sido Claude Opus 5 de Anthropic.
+
 Sensores de salida en tiempo real para cualquier estación de Renfe Cercanías,
 usando los mismos documentos públicos que alimentan el visor oficial
 [tiempo-real.renfe.com](https://tiempo-real.renfe.com).
