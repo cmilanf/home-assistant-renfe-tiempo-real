@@ -1,6 +1,6 @@
 {
   "name": "Renfe Tiempo Real",
   "content_in_root": false,
-  "render_readme": true,
+  "country": "ES",
   "homeassistant": "2025.2.0"
 }

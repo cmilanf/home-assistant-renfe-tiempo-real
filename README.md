@@ -21,23 +21,38 @@ Funciona con los 15 núcleos de Cercanías: Madrid, Asturias, Sevilla, Cádiz,
 Málaga, Valencia, Murcia/Alicante, Cartagena, Ferrol, León, Rodalies de
 Catalunya, Bilbao, San Sebastián, Cantabria y Zaragoza. En total 879 estaciones.
 
+<!-- ha-marketplace:exclude-start -->
 ## Instalación
 
-### HACS
+### Marketplace (Home Assistant 2026.11 o posterior)
 
-Añade este repositorio como repositorio personalizado de tipo *Integration*,
-instala **Renfe Tiempo Real** y reinicia Home Assistant.
+[![Abre tu instancia de Home Assistant y muestra este repositorio en el Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=cmilanf&repository=home-assistant-renfe-tiempo-real&category=integration)
+
+Pulsa el botón, o busca **Renfe Tiempo Real** en **Ajustes > Marketplace**, e
+instálala. Al tener asistente de configuración, se carga sin reiniciar.
+
+### HACS (antes de 2026.11)
+
+[![Abre tu instancia de Home Assistant y muestra este repositorio en HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=cmilanf&repository=home-assistant-renfe-tiempo-real&category=integration)
+
+Pulsa el botón, o añade este repositorio como repositorio personalizado de tipo
+*Integration*. Instala **Renfe Tiempo Real** y reinicia Home Assistant.
 
 ### Manual
 
-Copia `custom_components/renfe_tiempo_real` en el directorio
+Descarga la [última versión](https://github.com/cmilanf/home-assistant-renfe-tiempo-real/releases/latest)
+y copia `custom_components/renfe_tiempo_real` en el directorio
 `config/custom_components` de tu Home Assistant y reinicia.
 
 Si copias desde macOS, usa `rsync` o `scp` en lugar de `tar`: el `tar` de macOS
 crea ficheros `._nombre` con los atributos extendidos que acaban como basura en
 el destino. Con `tar`, exporta antes `COPYFILE_DISABLE=1`.
 
+<!-- ha-marketplace:exclude-end -->
+
 ## Configuración
+
+[![Abre tu instancia de Home Assistant y empieza a configurar la integración.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=renfe_tiempo_real)
 
 Ajustes → Dispositivos y servicios → Añadir integración → **Renfe Tiempo Real**.
 Hay tres formas de identificar la estación:

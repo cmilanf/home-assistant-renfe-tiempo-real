@@ -2,6 +2,7 @@
   "domain": "renfe_tiempo_real",
   "name": "Renfe Tiempo Real",
   "after_dependencies": ["frontend", "http", "lovelace"],
+  "categories": ["vehicles_transport.public_transport"],
   "codeowners": ["@cmilanf"],
   "config_flow": true,
   "documentation": "https://github.com/cmilanf/home-assistant-renfe-tiempo-real",
